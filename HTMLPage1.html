@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Calculator</title>
+    <style>
+        /* Add styles for the calculator layout and appearance */
+        #calculator {
+            width: 250px;
+            height: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+            text-align: right;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Add a calculator container with an input field, number buttons, and operation buttons -->
+    <div id="calculator">
+        <input type="text" id="display">
+        <br><br>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>+</button>
+        <br>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        <br>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>*</button>
+        <br>
+        <button>C</button>
+        <button>0</button>
+        <button>=</button>
+        <button>/</button>
+    </div>
+    <script>
+        /* Add the JavaScript code to handle user inputs, calculate results, and update the display */
+        const display = document.querySelector("#display");
+        const buttons = document.querySelectorAll("button");
+
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                let value = this.innerHTML;
+                if (value === "C") {
+                    display.value = "";
+                } else if (value === "=") {
+                    display.value = eval(display.value);
+                } else {
+                    display.value += value;
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
